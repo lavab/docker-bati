@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install -y git curl ca-certificates && rm -rf /var/lib/apt/lists*
+RUN apt-get update && apt-get install -y git mercurial curl ca-certificates && rm -rf /var/lib/apt/lists*
 
 ENV GOLANG_VERSION 1.4.2
 
