@@ -18,4 +18,6 @@ RUN go get github.com/bitly/nsq/apps/nsqlookupd
 
 RUN go get github.com/lavab/bati
 
-CMD "bati -config /etc/bati.conf &; "
+ADD start.sh /
+
+ENTRYPOINT /start.sh
