@@ -1,4 +1,4 @@
-FROM nsqio/nsq
+FROM ubuntu:14.04
 
 RUN apt-get update && apt-get install -y git curl ca-certificates && rm -rf /var/lib/apt/lists*
 
@@ -11,6 +11,10 @@ RUN mkdir -p /go/src /go/bin && chmod -R 777 /go
 ENV GOPATH /go
 ENV PATH /go/bin:/usr/local/go/bin:$PATH
 WORKDIR /go
+
+RUN go get github.com/bitly/nsq/apps/nsqd
+RUN go get github.com/bitly/nsq/apps/nsqadmin
+RUN go get github.com/bitly/nsq/apps/nsqlookupd
 
 RUN go get github.com/lavab/bati
 
